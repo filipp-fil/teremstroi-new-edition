@@ -1,0 +1,28 @@
+# Зависимости
+node_modules/
+
+# Сборка Next.js (outdir перенаправлен в %TEMP% скриптом scripts/prepare-dist.js)
+.next/
+out/
+dist/
+
+# Локальная база данных (создаётся командой npx prisma db push / seed)
+prisma/dev.db
+dev.db
+dev.db-journal
+*.db-journal
+
+# Секреты и локальное окружение
+.env
+.env.local
+.env*.local
+
+# Логи и мусор
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Рабочие материалы (исходники фото со старого сайта и скриншоты-выгрузки)
+old_photos/
+scrape/

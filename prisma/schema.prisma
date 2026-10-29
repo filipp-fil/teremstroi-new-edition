@@ -1,0 +1,24 @@
+// База данных заявок (SQLite — один файл prisma/dev.db, легко бэкапить)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  message   String?
+  // Источник заявки: hero | cta | callback | project | works | contact
+  source    String   @default("contact")
+  // new = новая, viewed = просмотренная (кнопка в админке)
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+
+  @@index([status, createdAt])
+}

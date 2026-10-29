@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Глобальные CSS-переменные shadcn/ui.
+ * Светлая тема — ЕДИНСТВЕННАЯ. Тёмную не добавляем.
+ */
+@layer base {
+  :root {
+    --background: 60 20% 98%; /* почти белый с тёплым оттенком */
+    --foreground: 120 32% 15%; /* тёмно-зелёный текст */
+    --card: 0 0% 100%;
+    --card-foreground: 120 32% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 32% 15%;
+    --secondary: 84 52% 93%; /* светло-салатовая подложка */
+    --secondary-foreground: 120 32% 15%;
+    --muted: 60 9% 94%;
+    --muted-foreground: 120 8% 40%;
+    --destructive: 355 73% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 48 10% 88%;
+    --input: 48 10% 82%;
+    --ring: 87 52% 51%; /* салатовый фокус */
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  /* Плавный скролл к якорям */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
