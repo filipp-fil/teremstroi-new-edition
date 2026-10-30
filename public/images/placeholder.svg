@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#EAF5DB"/>
+  <rect y="740" width="1200" height="160" fill="#8CC63F"/>
+  <polygon points="0,740 600,640 1200,740" fill="#6BA534"/>
+  <rect x="450" y="430" width="300" height="240" fill="#1E3A1E"/>
+  <polygon points="420,430 600,320 780,430" fill="#E63946"/>
+  <rect x="565" y="530" width="70" height="140" fill="#8CC63F"/>
+  <text x="600" y="120" text-anchor="middle" font-family="Arial" font-size="36" fill="#1E3A1E">PHOTO PLACEHOLDER</text>
+</svg>
