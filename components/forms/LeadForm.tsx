@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PuzzleCaptcha } from "./PuzzleCaptcha";
+import { PhoneInput } from "./PhoneInput";
 
 type LeadSource = "hero" | "cta" | "callback" | "project" | "works" | "contact";
 
@@ -104,10 +105,9 @@ export function LeadForm({
 
       <div className="space-y-1.5">
         <Label htmlFor={`phone-${source}`}>Телефон</Label>
-        <Input
+        <PhoneInput
           id={`phone-${source}`}
           name="phone"
-          type="tel"
           placeholder="+7 (___) ___-__-__"
           required
           minLength={10}

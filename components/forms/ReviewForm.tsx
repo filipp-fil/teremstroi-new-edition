@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PuzzleCaptcha } from "./PuzzleCaptcha";
+import { PhoneInput } from "./PhoneInput";
 
 /**
  * Форма отзыва: оценка 1–5 звёзд + имя + комментарий.
@@ -108,10 +109,9 @@ export function ReviewForm({ onSuccess }: { onSuccess?: () => void }) {
 
       <div className="space-y-1.5">
         <Label htmlFor="review-phone">Телефон (не публикуется)</Label>
-        <Input
+        <PhoneInput
           id="review-phone"
           name="phone"
-          type="tel"
           placeholder="+7 (___) ___-__-__"
           minLength={10}
           autoComplete="tel"
