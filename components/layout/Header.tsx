@@ -27,10 +27,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-line bg-white/90 backdrop-blur-md">
-      <div className="container flex h-18 items-center justify-between gap-4 py-3">
+      <div className="container flex items-center justify-between gap-4 py-3.5 md:py-5">
         {/* Логотип компании (файл public/logo.png) */}
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Красивый Дом — на главную">
-          <Image src="/logo.png" alt="Красивый Дом" width={164} height={80} priority className="h-10 w-auto" />
+          <Image src="/logo.png" alt="Красивый Дом" width={164} height={80} priority className="h-12 w-auto md:h-14" />
         </Link>
 
         {/* Десктопная навигация */}
@@ -40,7 +40,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "rounded-full px-4 py-2 text-sm font-semibold transition-colors hover:bg-primary-light",
+                "rounded-full px-4 py-2 text-[15px] font-semibold transition-colors hover:bg-primary-light",
                 pathname === item.href || pathname.startsWith(item.href + "/")
                   ? "text-primary-dark"
                   : "text-forest"
