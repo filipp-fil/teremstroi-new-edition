@@ -26,20 +26,32 @@ npm run dev -- -p 7100      # http://localhost:7100
 Сборка: `npm run build` (outdir уводится в `%TEMP%\teremstroi-next-dist` скриптом
 `scripts/prepare-dist.js`, чтобы не синхронизировать сборку через OneDrive).
 
-## Деплой на Vercel
+## Деплой
 
-1. Залейте репозиторий на GitHub.
-2. [vercel.com/new](https://vercel.com/new) → **Import** этого репозитория.
-   Vercel сам определит Next.js — команды менять не нужно.
-3. В **Environment Variables** добавьте переменные из `.env.example`:
+### Render (рекомендуется для этого проекта)
+
+1. Залейте репозиторий на GitHub (уже сделано).
+2. [dashboard.render.com](https://dashboard.render.com) → **New +** → **Web Service** → подключите репозиторий `teremstroi-new-edition`.
+3. Настройки:
+   - **Build Command**: `npm run build`
+   - **Start Command**: `npm run start`
+   - Остальное (Node 20, регион) — по умолчанию.
+4. Вкладка **Environment** → добавьте переменные из `.env.example`:
    `ADMIN_PASSWORD`, `ADMIN_SECRET`, `DATABASE_URL`, `SMTP_HOST`, `SMTP_PORT`,
-   `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`, `NEXT_PUBLIC_SITE_URL`,
+   `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`, `NEXT_PUBLIC_SITE_URL` (адрес вашего
+   сайта на Render, например `https://teremstroi-new-edition.onrender.com`),
    `NEXT_PUBLIC_YANDEX_METRIKA_ID`.
-4. **Deploy**.
+5. **Deploy**. Первая сборка займёт несколько минут (много фотографий).
+
+### Vercel
+
+1. [vercel.com/new](https://vercel.com/new) → **Import** репозитория. Команды менять не нужно.
+2. Добавьте те же переменные окружения (раздел **Environment Variables**).
+3. **Deploy**.
 
 > ⚠️ **Важно про базу данных.** Сейчас используется SQLite — файл БД.
-> На Vercel файловая система серверлесс-функций временная и только для чтения:
-> админ-панель откроется, но новые заявки/отзывы **не будут сохраняться**.
+> На бесплатных тарифах Render/Vercel файловая система временная: админ-панель
+> откроется, но новые заявки/отзывы **пропадут после перевыкладки/перезапуска**.
 > Для продакшена подключите бесплатный серверный Postgres (например, [Neon](https://neon.tech)):
 > поменяйте `provider = "postgresql"` в `prisma/schema.prisma`, задайте `DATABASE_URL`
 > из Neon и прогоните `npx prisma db push`. Заявки при этом всё равно дублируются на почту.

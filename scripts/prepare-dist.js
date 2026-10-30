@@ -5,14 +5,26 @@
  *
  * OneDrive заменяет файлы в .next reparse-point'ами, и сборка падает на их удалении,
  * поэтому .next внутри проекта использовать нельзя.
+ *
+ * ВАЖНО: актуально только на машине разработчика (проект лежит в OneDrive).
+ * На хостинге (Render/Vercel) директория сборки — стандартная .next (см. next.config.mjs),
+ * здесь же ничего делать не нужно.
  */
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
 
+const projectRoot = path.join(__dirname, "..");
+const isOneDrive = projectRoot.toLowerCase().includes("onedrive");
+
+if (!isOneDrive && !process.env.NEXT_DIST_DIR) {
+  console.log("[prepare-dist] не OneDrive — стандартная директория .next, ничего не делаем");
+  return;
+}
+
 const root = path.join(os.tmpdir(), "teremstroi-next-dist");
 const link = path.join(root, "node_modules");
-const target = path.join(__dirname, "..", "node_modules");
+const target = path.join(projectRoot, "node_modules");
 
 fs.mkdirSync(root, { recursive: true });
 
