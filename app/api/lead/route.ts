@@ -10,7 +10,7 @@ import { leadSchema } from "@/lib/validations";
  * Сохраняет в БД и отправляет письмо (если настроен SMTP).
  */
 export async function POST(req: Request) {
-  // 1. Rate-limit: не более 5 заявок за 10 минут с одного IP
+  // 1. Rate-limit: не более 10 заявок за 10 минут с одного IP
   if (!rateLimit(getClientIp(req))) {
     return NextResponse.json(
       { ok: false, error: "Слишком много заявок. Попробуйте позже." },
@@ -54,12 +54,11 @@ export async function POST(req: Request) {
     );
   }
 
-  // 5. Отправляем письмо (не блокируем ответ при ошибке SMTP)
-  try {
-    await sendLeadEmail({ name, phone, message, source });
-  } catch (e) {
-    console.error("[api/lead] Ошибка отправки письма:", e);
-  }
+  // 5. Отправляем письмо В ФОНЕ — не ждём SMTP, чтобы ответить клиенту мгновенно.
+  // Заявка уже сохранена в БД, поэтому ответ не зависит от почты.
+  void sendLeadEmail({ name, phone, message, source }).catch((e) =>
+    console.error("[api/lead] Ошибка отправки письма:", e)
+  );
 
   return NextResponse.json({ ok: true });
 }

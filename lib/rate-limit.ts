@@ -6,7 +6,7 @@
  */
 
 const WINDOW_MS = 10 * 60 * 1000; // 10 минут
-const MAX_REQUESTS = 5; // максимум 5 заявок с одного IP за окно
+const MAX_REQUESTS = 10; // максимум 10 заявок с одного IP за окно (мягче: VPN/общие IP)
 
 const buckets = new Map<string, { count: number; resetAt: number }>();
 

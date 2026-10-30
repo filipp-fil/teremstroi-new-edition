@@ -14,6 +14,10 @@ const transporter = hasSmtp
       port: Number(process.env.SMTP_PORT ?? 465),
       secure: Number(process.env.SMTP_PORT ?? 465) === 465,
       auth: { user: process.env.SMTP_USER!, pass: process.env.SMTP_PASS! },
+      // Жёсткие таймауты: если SMTP не отвечает (блокировки, сеть), не висим вечно
+      connectionTimeout: 8000,
+      greetingTimeout: 8000,
+      socketTimeout: 12000,
     })
   : null;
 
