@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node scripts/prepare-dist.js && node scripts/run-dev.js dev",
     "build": "node scripts/prepare-dist.js && prisma generate && next build",
-    "start": "node scripts/prepare-dist.js && node scripts/run-dev.js start",
+    "start": "node scripts/prepare-dist.js && prisma db push && node scripts/run-dev.js start",
     "lint": "next lint",
     "postinstall": "prisma generate"
   },
