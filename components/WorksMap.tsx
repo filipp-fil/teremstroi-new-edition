@@ -32,7 +32,9 @@ export function WorksMap() {
         attributionControl: false,
       }).fitBounds(bounds);
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      // Тайлы грузим через прокси на нашем сервере (/map-tiles/): openstreetmap.org
+      // из России отдаёт медленно/блокирует, а свой прокси работает всегда быстро.
+      L.tileLayer("/map-tiles/{z}/{x}/{y}.png", {
         maxZoom: 18,
       }).addTo(map);
 
