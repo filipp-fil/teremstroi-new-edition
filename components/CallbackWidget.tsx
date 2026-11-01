@@ -54,7 +54,7 @@ export function CallbackWidget() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 24, scale: 0.96 }}
               transition={{ duration: 0.25 }}
-              className="fixed bottom-24 right-4 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-2xl bg-white p-5 shadow-lift md:bottom-28 md:right-8"
+              className="fixed bottom-24 right-4 z-50 max-h-[calc(100dvh-8rem)] w-[calc(100vw-2rem)] max-w-sm overflow-y-auto rounded-2xl bg-white p-5 shadow-lift md:bottom-28 md:right-8"
               role="dialog"
               aria-label="Заказать обратный звонок"
             >

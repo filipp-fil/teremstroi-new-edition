@@ -29,7 +29,7 @@ export const site = {
     {
       id: "max",
       label: "Макс — +7 926 372-22 03, личные сообщения",
-      href: "https://max.ru",
+      href: "https://max.ru/u/f9LHodD0cOIiacQLCn0t9XULbrGBLyzMO1UuDxwPC0bXILJnbjIg-bFZmEA",
       placeholder: false,
     },
   ],

@@ -80,13 +80,29 @@ export function MobileMenu({ open, onClose, nav }: MobileMenuProps) {
             </nav>
 
             <div className="mt-auto space-y-3 border-t border-line pt-6">
-              <a
-                href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-                className="flex items-center gap-2 text-base font-bold text-forest"
-              >
-                <Phone className="h-5 w-5 text-primary-dark" />
-                {site.phone}
-              </a>
+              {/* Телефоны: Москва и С-Петербург с подписями */}
+              <div className="space-y-2">
+                <a
+                  href={`tel:${site.phoneMoscow.replace(/[^+\d]/g, "")}`}
+                  className="flex items-baseline gap-2 text-base font-bold text-forest"
+                >
+                  <Phone className="h-4 w-4 shrink-0 self-center text-primary-dark" />
+                  <span>
+                    <span className="mr-1.5 text-xs font-medium text-muted-foreground">Москва</span>
+                    {site.phoneMoscow}
+                  </span>
+                </a>
+                <a
+                  href={`tel:${site.phonesSpb[0].replace(/[^+\d]/g, "")}`}
+                  className="flex items-baseline gap-2 text-base font-bold text-forest"
+                >
+                  <Phone className="h-4 w-4 shrink-0 self-center text-primary-dark" />
+                  <span>
+                    <span className="mr-1.5 text-xs font-medium text-muted-foreground">С-Петербург</span>
+                    {site.phonesSpb[0]}
+                  </span>
+                </a>
+              </div>
               <Button asChild className="w-full">
                 <Link href="/#cta" onClick={onClose}>
                   Оставить заявку

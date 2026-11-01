@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, Phone } from "lucide-react";
+import { Menu } from "lucide-react";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -52,13 +52,23 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-            className="hidden items-center gap-2 text-sm font-bold text-forest transition-colors hover:text-primary-dark md:flex"
-          >
-            <Phone className="h-4 w-4 text-primary-dark" />
-            {site.phone}
-          </a>
+          {/* Телефоны: Москва и С-Петербург (всегда видны на десктопе) */}
+          <div className="hidden flex-col items-end leading-tight lg:flex">
+            <a
+              href={`tel:${site.phoneMoscow.replace(/[^+\d]/g, "")}`}
+              className="group flex items-baseline gap-1.5 text-sm font-bold text-forest transition-colors hover:text-primary-dark"
+            >
+              <span className="text-[11px] font-medium text-muted-foreground">Москва</span>
+              {site.phoneMoscow}
+            </a>
+            <a
+              href={`tel:${site.phonesSpb[0].replace(/[^+\d]/g, "")}`}
+              className="group flex items-baseline gap-1.5 text-sm font-bold text-forest transition-colors hover:text-primary-dark"
+            >
+              <span className="text-[11px] font-medium text-muted-foreground">С-Петербург</span>
+              {site.phonesSpb[0]}
+            </a>
+          </div>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link href="/#cta">Оставить заявку</Link>
           </Button>
