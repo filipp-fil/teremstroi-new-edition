@@ -68,7 +68,7 @@ export function WorksMap() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl shadow-soft">
+    <div className="relative isolate overflow-hidden rounded-2xl shadow-soft">
       <div ref={ref} className="works-leaflet h-[480px] w-full" />
       <p className="absolute bottom-3 left-3 z-[500] rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-forest backdrop-blur-sm">
         {workPoints.length} построенных объектов на карте

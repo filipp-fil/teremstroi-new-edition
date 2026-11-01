@@ -56,7 +56,6 @@ const SLIDES: VideoSlide[] = [
 
 export function HeroSlider() {
   const [index, setIndex] = React.useState(0);
-  const [paused, setPaused] = React.useState(false);
   const touchStartX = React.useRef<number | null>(null);
 
   const go = React.useCallback(
@@ -81,8 +80,6 @@ export function HeroSlider() {
     <section
       className="relative h-[560px] w-full overflow-hidden md:h-[640px]"
       aria-roledescription="слайдер"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -104,9 +101,7 @@ export function HeroSlider() {
             muted
             playsInline
             preload="auto"
-            onEnded={() => {
-              if (!paused) go(1);
-            }}
+            onEnded={() => go(1)}
             className="absolute inset-0 h-full w-full object-cover"
           />
           {/* Затемнение для читаемости текста */}
