@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -150,6 +150,12 @@ export function LeadForm({
 
       <p className="text-center text-xs text-muted-foreground">
         Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
+      </p>
+
+      {/* Плашка доверия */}
+      <p className="flex items-center justify-center gap-2 rounded-lg bg-primary-light px-3 py-2 text-xs font-semibold text-forest">
+        <ShieldCheck className="h-4 w-4 shrink-0 text-primary-dark" />
+        с 2011 года · 470+ домов · гарантия 5 лет · без предоплаты
       </p>
     </form>
   );

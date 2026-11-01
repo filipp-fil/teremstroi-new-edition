@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { heroProjects } from "@/content/projects";
 import { site } from "@/content/site";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { WhyUs } from "@/components/home/WhyUs";
@@ -18,7 +17,7 @@ export default function HomePage() {
   return (
     <>
       {/* 1. Hero-слайдер */}
-      <HeroSlider slides={heroProjects} />
+      <HeroSlider />
 
       {/* 2. Почему мы */}
       <WhyUs />

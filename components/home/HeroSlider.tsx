@@ -1,37 +1,68 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Project } from "@/content/projects";
+import { ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LeadDialog } from "@/components/forms/LeadDialog";
 
-const AUTOPLAY_MS = 7000;
-
 /**
- * Hero-слайдер: автопрокрутка, стрелки, точки, свайп на мобильных, fade-переходы.
- * Слайды берутся из content/projects.ts (проекты с флагом hero).
+ * Hero-баннер на главной: видео-ротация объектов.
+ * Следующее видео стартует, когда предыдущее закончилось (onEnded), по кругу.
+ * Порядок: Дмитров → Подольск → Кондор-1.
  */
-export function HeroSlider({ slides }: { slides: Project[] }) {
+
+interface VideoSlide {
+  video: string;
+  poster: string;
+  title: string;
+  href: string;
+  price: number;
+  area: number;
+  size: string;
+}
+
+const SLIDES: VideoSlide[] = [
+  {
+    video: "/videos/hero-dmitrov.mp4",
+    poster: "/images/projects/odnoetazhnyj-karkasnyj-dom-dmitrov-8h11-5/01.jpg",
+    title: "Дмитров",
+    href: "/projects/odnoetazhnyj-karkasnyj-dom-dmitrov-8h11-5",
+    price: 2542000,
+    area: 83,
+    size: "8×11.5 м",
+  },
+  {
+    video: "/videos/hero-podolsk.mp4",
+    poster: "/images/projects/podolsk/01.jpg",
+    title: "Подольск",
+    href: "/projects/podolsk",
+    price: 2590000,
+    area: 114,
+    size: "8×8 м",
+  },
+  {
+    video: "/videos/hero-kondor-1.mp4",
+    poster: "/images/projects/kondor-1/01.jpg",
+    title: "Кондор-1",
+    href: "/projects/kondor-1",
+    price: 1806000,
+    area: 73,
+    size: "7×7 м",
+  },
+];
+
+export function HeroSlider() {
   const [index, setIndex] = React.useState(0);
   const [paused, setPaused] = React.useState(false);
   const touchStartX = React.useRef<number | null>(null);
 
   const go = React.useCallback(
-    (dir: 1 | -1) => setIndex((i) => (i + dir + slides.length) % slides.length),
-    [slides.length]
+    (dir: 1 | -1) => setIndex((i) => (i + dir + SLIDES.length) % SLIDES.length),
+    []
   );
-
-  // Автопрокрутка
-  React.useEffect(() => {
-    if (paused || slides.length < 2) return;
-    const t = setInterval(() => go(1), AUTOPLAY_MS);
-    return () => clearInterval(t);
-  }, [paused, go, slides.length]);
 
   // Свайп на мобильных
   const onTouchStart = (e: React.TouchEvent) => {
@@ -44,9 +75,7 @@ export function HeroSlider({ slides }: { slides: Project[] }) {
     touchStartX.current = null;
   };
 
-  if (slides.length === 0) return null;
-  const slide = slides[index];
-  const catalogHref = slide.type === "bath" ? "/projects/baths" : "/projects/houses";
+  const slide = SLIDES[index];
 
   return (
     <section
@@ -59,21 +88,26 @@ export function HeroSlider({ slides }: { slides: Project[] }) {
     >
       <AnimatePresence mode="sync">
         <motion.div
-          key={slide.slug}
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
+          key={slide.video}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          {/* Фото на весь экран. Файлы слайдов: /public/images/projects/... (см. README) */}
-          <Image
-            src={slide.images[0]}
-            alt={slide.title}
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
+          {/* Видео на весь экран; постер — первое фото проекта для мгновенной отрисовки */}
+          <video
+            key={slide.video}
+            src={slide.video}
+            poster={slide.poster}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onEnded={() => {
+              if (!paused) go(1);
+            }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
           {/* Затемнение для читаемости текста */}
           <div className="absolute inset-0 bg-gradient-to-r from-forest/80 via-forest/50 to-transparent" />
@@ -84,7 +118,7 @@ export function HeroSlider({ slides }: { slides: Project[] }) {
       <div className="container relative z-10 flex h-full flex-col justify-center pb-16 md:pl-24">
         <AnimatePresence mode="wait">
           <motion.div
-            key={slide.slug}
+            key={slide.video}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -92,18 +126,20 @@ export function HeroSlider({ slides }: { slides: Project[] }) {
             className="max-w-2xl space-y-5 text-white"
           >
             <p className="inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-forest">
-              {slide.type === "bath" ? "Баня под ключ" : "Дом под ключ"}
+              Дом под ключ
             </p>
-            <h1 className="text-3xl font-bold leading-tight md:text-5xl">{slide.title}</h1>
+            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
+              Каркасный дом «{slide.title}»
+            </h1>
             <p className="text-lg text-white/90 md:text-xl">
-              Сухой пиломатериал камерной сушки · Rockwool · без предоплаты · срок {slide.specs.find((s) => s.label === "Срок стройки")?.value ?? "14–45 дней"}
+              {slide.area} м² · {slide.size} · Сухой пиломатериал камерной сушки · Rockwool · без предоплаты
             </p>
             <p className="text-2xl font-bold text-primary md:text-3xl">от {formatPrice(slide.price)}</p>
             <div className="flex flex-wrap gap-3 pt-2">
               <LeadDialog
                 source="hero"
                 title="Оставить заявку"
-                description={`Интересует ${slide.title}? Оставьте телефон — перезвоним за 15 минут.`}
+                description={`Интересует дом «${slide.title}»? Оставьте телефон — перезвоним за 15 минут.`}
                 trigger={
                   <Button variant="accent" size="lg">
                     Оставить заявку
@@ -111,51 +147,50 @@ export function HeroSlider({ slides }: { slides: Project[] }) {
                 }
               />
               <Button asChild variant="outline" size="lg">
-                <Link href={catalogHref}>Смотреть проекты</Link>
+                <Link href={slide.href}>Смотреть проект</Link>
               </Button>
             </div>
+            {/* Плашка доверия */}
+            <p className="flex items-center gap-2 pt-1 text-sm font-medium text-white/85">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
+              с 2011 года · 470+ домов · гарантия 5 лет · без предоплаты
+            </p>
           </motion.div>
         </AnimatePresence>
       </div>
 
       {/* Стрелки */}
-      {slides.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={() => go(-1)}
-            aria-label="Предыдущий слайд"
-            className="absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/15 p-3 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-forest md:block"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-          <button
-            type="button"
-            onClick={() => go(1)}
-            aria-label="Следующий слайд"
-            className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/15 p-3 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-forest md:block"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
-        </>
-      )}
+      <button
+        type="button"
+        onClick={() => go(-1)}
+        aria-label="Предыдущий слайд"
+        className="absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/15 p-3 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-forest md:block"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+      <button
+        type="button"
+        onClick={() => go(1)}
+        aria-label="Следующий слайд"
+        className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/15 p-3 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-forest md:block"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
 
       {/* Точки-индикаторы */}
-      {slides.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-          {slides.map((s, i) => (
-            <button
-              key={s.slug}
-              type="button"
-              onClick={() => setIndex(i)}
-              aria-label={`Слайд ${i + 1}: ${s.title}`}
-              className={`h-2.5 rounded-full transition-all ${
-                i === index ? "w-8 bg-primary" : "w-2.5 bg-white/50 hover:bg-white"
-              }`}
-            />
-          ))}
-        </div>
-      )}
+      <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {SLIDES.map((s, i) => (
+          <button
+            key={s.video}
+            type="button"
+            onClick={() => setIndex(i)}
+            aria-label={`Слайд ${i + 1}: ${s.title}`}
+            className={`h-2.5 rounded-full transition-all ${
+              i === index ? "w-8 bg-primary" : "w-2.5 bg-white/50 hover:bg-white"
+            }`}
+          />
+        ))}
+      </div>
     </section>
   );
 }

@@ -15,6 +15,12 @@ export function Footer() {
             Строим каркасные дома и бани под ключ в Санкт-Петербурге и Ленобласти. Сухой пиломатериал,
             без предоплаты, гарантия до 5 лет.
           </p>
+          <Link
+            href="/politika-v-otnoshenii-obrabotki-personalnyh-dannyh"
+            className="block text-xs text-white/50 underline-offset-2 transition-colors hover:text-primary hover:underline"
+          >
+            Политика в отношении обработки персональных данных
+          </Link>
         </div>
 
         {/* Колонка 2: разделы */}
