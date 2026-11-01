@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { sendLeadEmail } from "@/lib/mailer";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { leadSchema } from "@/lib/validations";
 
 /**
  * Приём заявок: POST /api/lead
  * Защита: zod-валидация + honeypot + rate-limit по IP.
- * Сохраняет в БД и отправляет письмо (если настроен SMTP).
+ * Заявки хранятся в БД и видны в админке /admin — почта не используется.
  */
 export async function POST(req: Request) {
   // 1. Rate-limit: не более 10 заявок за 10 минут с одного IP
@@ -54,11 +53,6 @@ export async function POST(req: Request) {
     );
   }
 
-  // 5. Отправляем письмо В ФОНЕ — не ждём SMTP, чтобы ответить клиенту мгновенно.
-  // Заявка уже сохранена в БД, поэтому ответ не зависит от почты.
-  void sendLeadEmail({ name, phone, message, source }).catch((e) =>
-    console.error("[api/lead] Ошибка отправки письма:", e)
-  );
-
+  // 5. Готово: заявка в БД, видна в админке. Почта не отправляется.
   return NextResponse.json({ ok: true });
 }
