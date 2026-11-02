@@ -150,7 +150,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
     "foundation": [
       "Свайный, 14 шт – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/dachnyy-1/plan-1.jpg",
+      "/images/projects/dachnyy-1/plan-2.jpg"
+    ]
   },
   "dachnyy-2": {
     "priceTables": [
@@ -278,7 +281,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
     "foundation": [
       "Свайный, 18 шт – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/dachnyy-2/plan-1.jpg",
+      "/images/projects/dachnyy-2/plan-2.jpg"
+    ]
   },
   "dachnyy-3": {
     "priceTables": [
@@ -406,7 +412,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
     "foundation": [
       "Свайный, 12 шт – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/dachnyy-3/plan-1.jpg",
+      "/images/projects/dachnyy-3/plan-2.jpg"
+    ]
   },
   "dachnyy-4": {
     "priceTables": [
@@ -535,7 +544,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 18 шт – уточняйте",
       "За крыльцо - 80 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/dachnyy-4/plan-1.jpg",
+      "/images/projects/dachnyy-4/plan-2.jpg"
+    ]
   },
   "dom-bogatyr": {
     "priceTables": [
@@ -919,7 +931,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       }
     ],
     "foundation": [],
-    "plans": []
+    "plans": [
+      "/images/projects/dom-za-million-grinvich/plan-1.jpg"
+    ]
   },
   "istra": {
     "priceTables": [
@@ -1950,7 +1964,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 9 шт – уточняйте",
       "За крыльцо с с/у - 190 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/komfort-1/plan-1.jpg",
+      "/images/projects/komfort-1/plan-2.jpg"
+    ]
   },
   "komfort-2": {
     "priceTables": [
@@ -2211,7 +2228,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 9 шт – уточняйте",
       "За крыльцо с с/у - 190 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/komfort-3/plan-1.jpg",
+      "/images/projects/komfort-3/plan-2.jpg"
+    ]
   },
   "kondor-1": {
     "priceTables": [
@@ -2340,7 +2360,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 23 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/kondor-1/plan-1.jpg",
+      "/images/projects/kondor-1/plan-2.jpg"
+    ]
   },
   "kondor-2": {
     "priceTables": [
@@ -2469,7 +2492,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 22 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/kondor-2/plan-1.jpg",
+      "/images/projects/kondor-2/plan-2.jpg"
+    ]
   },
   "kondor-3": {
     "priceTables": [
@@ -2598,7 +2624,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 18 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/kondor-3/plan-1.jpg",
+      "/images/projects/kondor-3/plan-2.jpg"
+    ]
   },
   "kottedzh-pod-klyuch-budapesht": {
     "priceTables": [
@@ -3245,7 +3274,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 24 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/lider-3/plan-1.jpg",
+      "/images/projects/lider-3/plan-2.jpg"
+    ]
   },
   "lider-4": {
     "priceTables": [
@@ -3632,7 +3664,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 9 шт – уточняйте",
       "За крыльцо с с/у - 190 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/mechta-1/plan-1.jpg",
+      "/images/projects/mechta-1/plan-2.jpg"
+    ]
   },
   "mechta-2": {
     "priceTables": [
@@ -3886,7 +3921,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
     "foundation": [
       "Свайный, 12 шт – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/mechta-3/plan-1.jpg",
+      "/images/projects/mechta-3/plan-2.jpg"
+    ]
   },
   "odnoetazhnyj-karkasnyj-dom-dmitrov-8h11-5": {
     "priceTables": [
@@ -5155,7 +5193,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 21 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/prestizh-1/plan-1.jpg",
+      "/images/projects/prestizh-1/plan-2.jpg"
+    ]
   },
   "prestizh-2": {
     "priceTables": [
@@ -5284,7 +5325,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 21 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/prestizh-2/plan-1.jpg",
+      "/images/projects/prestizh-2/plan-2.jpg"
+    ]
   },
   "prestizh-3": {
     "priceTables": [
@@ -5413,7 +5457,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 23 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/prestizh-3/plan-1.jpg",
+      "/images/projects/prestizh-3/plan-2.jpg"
+    ]
   },
   "ruza": {
     "priceTables": [
@@ -5805,7 +5852,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 14 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/terem-1/plan-1.jpg",
+      "/images/projects/terem-1/plan-2.jpg"
+    ]
   },
   "terem-2": {
     "priceTables": [
@@ -5935,7 +5985,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Ленточный – уточняйте",
       "За террасу - 280 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/terem-2/plan-1.jpg",
+      "/images/projects/terem-2/plan-2.jpg"
+    ]
   },
   "terem-3": {
     "priceTables": [
@@ -6190,7 +6243,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       }
     ],
     "foundation": [],
-    "plans": []
+    "plans": [
+      "/images/projects/terem-4/plan-1.jpg",
+      "/images/projects/terem-4/plan-2.jpg"
+    ]
   },
   "udachnyy-1": {
     "priceTables": [
@@ -6316,7 +6372,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       }
     ],
     "foundation": [],
-    "plans": []
+    "plans": [
+      "/images/projects/udachnyy-1/plan-1.jpg",
+      "/images/projects/udachnyy-1/plan-2.jpg"
+    ]
   },
   "udachnyy-2": {
     "priceTables": [
@@ -6442,7 +6501,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       }
     ],
     "foundation": [],
-    "plans": []
+    "plans": [
+      "/images/projects/udachnyy-2/plan-1.jpg",
+      "/images/projects/udachnyy-2/plan-2.jpg"
+    ]
   },
   "uspekh-1": {
     "priceTables": [
@@ -6571,7 +6633,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 26 шт – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/uspekh-1/plan-1.jpg",
+      "/images/projects/uspekh-1/plan-2.jpg"
+    ]
   },
   "uspekh-2": {
     "priceTables": [
@@ -6701,7 +6766,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Ленточный – утоняйте",
       "За террасу – 352 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/uspekh-2/plan-1.jpg",
+      "/images/projects/uspekh-2/plan-2.jpg"
+    ]
   },
   "uspekh-3": {
     "priceTables": [
@@ -6831,7 +6899,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Ленточный – уточняйте",
       "За террасу - 180 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/uspekh-3/plan-1.jpg",
+      "/images/projects/uspekh-3/plan-2.jpg"
+    ]
   },
   "uspekh-4": {
     "priceTables": [
@@ -6957,7 +7028,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       }
     ],
     "foundation": [],
-    "plans": []
+    "plans": [
+      "/images/projects/uspekh-4/plan-1.jpg",
+      "/images/projects/uspekh-4/plan-2.jpg"
+    ]
   },
   "vityaz-1": {
     "priceTables": [
@@ -7086,7 +7160,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 21 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/vityaz-1/plan-1.jpg",
+      "/images/projects/vityaz-1/plan-2.jpg"
+    ]
   },
   "vityaz-2": {
     "priceTables": [

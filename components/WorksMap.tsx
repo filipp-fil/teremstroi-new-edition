@@ -10,6 +10,13 @@ import { workPoints, type WorkPoint } from "@/content/works-map";
  */
 export function WorksMap() {
   const ref = React.useRef<HTMLDivElement>(null);
+  /** На мобильных карта «захватывает» скролл страницы — поэтому на
+   *  сенсорных экранах перетаскивание/зум выключены, пока пользователь
+   *  явно не коснётся карты (тогда включается до конца сессии). */
+  const [mapActive, setMapActive] = React.useState(false);
+  const [isCoarse] = React.useState(
+    () => typeof window !== "undefined" && (window.matchMedia?.("(pointer: coarse)").matches ?? false)
+  );
 
   React.useEffect(() => {
     let map: import("leaflet").Map | null = null;
@@ -30,7 +37,18 @@ export function WorksMap() {
       map = L.map(ref.current!, {
         scrollWheelZoom: false,
         attributionControl: false,
+        dragging: !isCoarse,
+        touchZoom: !isCoarse,
       }).fitBounds(bounds);
+
+      if (isCoarse) {
+        // Первый тап по карте включает управление (и скрывает подсказку)
+        map.on("click", () => {
+          map?.dragging.enable();
+          map?.touchZoom.enable();
+          setMapActive(true);
+        });
+      }
 
       // Тайлы грузим через прокси на нашем сервере (/map-tiles/): openstreetmap.org
       // из России отдаёт медленно/блокирует, а свой прокси работает всегда быстро.
@@ -70,6 +88,14 @@ export function WorksMap() {
   return (
     <div className="relative isolate overflow-hidden rounded-2xl shadow-soft">
       <div ref={ref} className="works-leaflet h-[480px] w-full" />
+      {/* Подсказка для мобильных: страница скроллится свайпом, карта — после касания */}
+      {!mapActive && isCoarse && (
+        <div className="pointer-events-none absolute inset-0 z-[600] flex items-end justify-center pb-12">
+          <span className="rounded-full bg-forest/85 px-4 py-2 text-xs font-semibold text-white shadow-lift backdrop-blur-sm">
+            Коснитесь карты, чтобы двигать её
+          </span>
+        </div>
+      )}
       <p className="absolute bottom-3 left-3 z-[500] rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-forest backdrop-blur-sm">
         {workPoints.length} построенных объектов на карте
       </p>
