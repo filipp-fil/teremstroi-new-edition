@@ -14,8 +14,12 @@ const oneDriveDistDir = path.relative(
 const nextConfig = {
   reactStrictMode: true,
   distDir: process.env.NEXT_DIST_DIR || (isOneDrive ? oneDriveDistDir : ".next"),
+  // Оптимизатор отключён намеренно: на VPS с 2 ГБ RAM on-the-fly ресайз
+  // (особенно до w=3840) съедает CPU и первое открытие каждой фотки занимает
+  // секунды. Фото отдаются как есть — nginx отдаёт их с диска мгновенно,
+  // плюс стоит жёсткий cache-control (см. конфиг nginx).
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
 };
 
