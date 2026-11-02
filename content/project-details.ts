@@ -676,7 +676,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 20 шт. – уточняйте",
       "Ленточный, 30х80 см. – 267 000 руб"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/dom-bogatyr/06.jpg"
+    ]
   },
   "dom-viking-terem": {
     "priceTables": [
@@ -805,7 +807,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 22 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/dom-viking-terem/03.jpg"
+    ]
   },
   "dom-za-million-grinvich": {
     "priceTables": [
@@ -1062,7 +1066,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 26 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/istra/14.jpg"
+    ]
   },
   "karkasno-shchitovoj-dom-pod-klyuch-madrid": {
     "priceTables": [
@@ -1447,8 +1453,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     ],
     "foundation": [],
     "plans": [
-      "/images/projects/karkasnyj-dom-9-na-9-milan/plan-1.jpg",
-      "/images/projects/karkasnyj-dom-9-na-9-milan/plan-2.jpg"
+      "/images/projects/karkasnyj-dom-9-na-9-milan/21.jpg",
+      "/images/projects/karkasnyj-dom-9-na-9-milan/22.jpg"
     ]
   },
   "karkasnyj-dom-chehov": {
@@ -1578,7 +1584,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 29 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/karkasnyj-dom-chehov/02.jpg"
+    ]
   },
   "karkasnyj-dom-dunaj": {
     "priceTables": [
@@ -1707,7 +1715,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 23 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/karkasnyj-dom-dunaj/07.jpg"
+    ]
   },
   "karkasnyj-dom-pod-klyuch-malta": {
     "priceTables": [
@@ -1834,8 +1844,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     ],
     "foundation": [],
     "plans": [
-      "/images/projects/karkasnyj-dom-pod-klyuch-malta/plan-1.jpg",
-      "/images/projects/karkasnyj-dom-pod-klyuch-malta/plan-2.jpg"
+      "/images/projects/karkasnyj-dom-pod-klyuch-malta/06.jpg",
+      "/images/projects/karkasnyj-dom-pod-klyuch-malta/07.jpg"
     ]
   },
   "komfort-1": {
@@ -3019,7 +3029,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 25 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/lider-1/08.jpg"
+    ]
   },
   "lider-2": {
     "priceTables": [
@@ -3148,7 +3160,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 25 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/lider-2/15.jpg",
+      "/images/projects/lider-2/16.jpg"
+    ]
   },
   "lider-3": {
     "priceTables": [
@@ -3541,7 +3556,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 27 шт. – уточняйте",
       "Ленточный – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/lider-5/02.jpg",
+      "/images/projects/lider-5/16.jpg"
+    ]
   },
   "mechta-1": {
     "priceTables": [
@@ -3799,7 +3817,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       }
     ],
     "foundation": [],
-    "plans": []
+    "plans": [
+      "/images/projects/mechta-2/10.jpg"
+    ]
   },
   "mechta-3": {
     "priceTables": [
@@ -4055,7 +4075,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "свайный, 30 шт - уточняйте",
       "ленточный - уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/odnoetazhnyj-karkasnyj-dom-dmitrov-8h11-5/14.jpg",
+      "/images/projects/odnoetazhnyj-karkasnyj-dom-dmitrov-8h11-5/15.jpg"
+    ]
   },
   "odnoetazhnyj-karkasnyj-dom-garmoniya-6h6-m": {
     "priceTables": [
@@ -4307,7 +4330,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "свайный, 19 шт - уточняйте",
       "ленточный - уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/odnoetazhnyj-karkasnyj-dom-garmoniya-6h7-m/07.jpg"
+    ]
   },
   "odnoetazhnyj-karkasnyj-dom-garmoniya-6h8-m": {
     "priceTables": [
@@ -4686,7 +4711,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "свайный, 25 шт - уточняйте",
       "ленточный - уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/odnoetazhnyj-karkasnyj-dom-garmoniya-7h9-m/02.jpg"
+    ]
   },
   "odnoetazhnyj-karkasnyj-dom-garmoniya-8h10-m": {
     "priceTables": [
@@ -4938,7 +4965,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "свайный, 21 шт - уточняйте",
       "ленточный - уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/odnoetazhnyj-skandi-6h8-m/07.jpg"
+    ]
   },
   "podolsk": {
     "priceTables": [
@@ -6124,7 +6153,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 18 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/terem-3/02.jpg"
+    ]
   },
   "terem-4": {
     "priceTables": [
@@ -7299,7 +7330,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Свайный, 22 шт. – уточняйте",
       "Ленточный, 30х80 см. – уточняйте"
     ],
-    "plans": []
+    "plans": [
+      "/images/projects/vityaz-2/02.jpg"
+    ]
   },
   "zakazat-karkasnyj-dom-rim": {
     "priceTables": [
