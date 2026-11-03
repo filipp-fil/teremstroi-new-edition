@@ -22,7 +22,7 @@ export async function GET(req: Request) {
   const leads = await prisma.lead.findMany({
     where,
     orderBy: { createdAt: "desc" },
-    take: 500,
+    take: 2000,
   });
   return NextResponse.json({ ok: true, leads });
 }

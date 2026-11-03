@@ -141,6 +141,18 @@ export function HeroSlider() {
                   </Button>
                 }
               />
+              <LeadDialog
+                source="project"
+                title="Получить смету"
+                description={`Укажите имя и телефон — вышлем подробную смету по проекту «${slide.title}» с учётом доставки на ваш участок.`}
+                withComment
+                commentLabel="Комментарий (необязательно)"
+                trigger={
+                  <Button variant="default" size="lg">
+                    Получить смету
+                  </Button>
+                }
+              />
               <Button asChild variant="outline" size="lg">
                 <Link href={slide.href}>Смотреть проект</Link>
               </Button>

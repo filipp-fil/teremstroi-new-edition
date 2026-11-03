@@ -7462,5 +7462,425 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "/images/projects/zakazat-karkasnyj-dom-rim/plan-1.jpg",
       "/images/projects/zakazat-karkasnyj-dom-rim/plan-2.jpg"
     ]
+  },
+  "banya-iz-brusa-eger": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Егерь»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "-",
+            "1 760 000"
+          ],
+          [
+            "190х140",
+            "-",
+            "1 950 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Егерь»",
+        "head": [
+          "Комплектация",
+          "отделка Имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 314 000"
+          ],
+          [
+            "Премиум",
+            "1 659 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/banya-iz-brusa-eger/02.jpg"
+    ]
+  },
+  "derevyannaya-banya-s-mansardoj-6na6-standart": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Стандарт»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "999 000",
+            "1 495 000"
+          ],
+          [
+            "190х140",
+            "1 135 000",
+            "1 630 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Стандарт»",
+        "head": [
+          "Комплектация",
+          "Отделка Имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 220 000"
+          ],
+          [
+            "Премиум",
+            "1 420 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/derevyannaya-banya-s-mansardoj-6na6-standart/18.jpg"
+    ]
+  },
+  "banya-6h4-pod-klyuch-drakon": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Дракон»",
+        "head": [
+          "Толщина бруса",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "897 000"
+          ],
+          [
+            "190х140",
+            "999 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Баня  Из Бруса Дракон»",
+        "head": [
+          "Комплектация",
+          "Отделка имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "790 000"
+          ],
+          [
+            "Премиум",
+            "871 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/banya-6h4-pod-klyuch-drakon/08.jpg"
+    ]
+  },
+  "banya-6-na-4-valma": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Вальма»",
+        "head": [
+          "Толщина бруса",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "1 036 000"
+          ],
+          [
+            "190х140",
+            "1 150 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Вальма»",
+        "head": [
+          "Комплектация",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "909 000"
+          ],
+          [
+            "Премиум",
+            "999 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/banya-6-na-4-valma/22.jpg"
+    ]
+  },
+  "banya-iz-brusa-6h6-ehkonom": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Эконом»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "896 000",
+            "1 175 000"
+          ],
+          [
+            "190х140",
+            "1 040 000",
+            "1 338 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Эконом»",
+        "head": [
+          "Комплектация",
+          "отделка Имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 035 000"
+          ],
+          [
+            "Премиум",
+            "1 139 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/banya-iz-brusa-6h6-ehkonom/06.jpg",
+      "/images/baths/banya-iz-brusa-6h6-ehkonom/07.jpg"
+    ]
+  },
+  "karkasnaya-banya-pod-klyuch-nedorogo-ehrker": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Эркер»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "976 000",
+            "1 355 000"
+          ],
+          [
+            "190х140",
+            "1 134 000",
+            "1 499 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Эркер»",
+        "head": [
+          "Комплектация",
+          "Отделка имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 175 000"
+          ],
+          [
+            "Премиум",
+            "1 312 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/karkasnaya-banya-pod-klyuch-nedorogo-ehrker/14.jpg"
+    ]
+  },
+  "banya-iz-brusa-mechta": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Мечта»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140 мм",
+            "998 000",
+            "1 598 000"
+          ],
+          [
+            "190х140 мм",
+            "1 120 000",
+            "1 747 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Мечта»",
+        "head": [
+          "Комплектация",
+          "Отделка Имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 210 000"
+          ],
+          [
+            "Премиум",
+            "1 518 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/banya-iz-brusa-mechta/11.jpg"
+    ]
+  },
+  "banya-iz-brusa-6-na-8-ladya": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Ладья»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "1 198 000",
+            "1 865 000"
+          ],
+          [
+            "190х140",
+            "1 350 000",
+            "2 045 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Ладья»",
+        "head": [
+          "Комплектация",
+          "отделка Имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 508 000"
+          ],
+          [
+            "Премиум",
+            "1 775 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/banya-iz-brusa-6-na-8-ladya/17.jpg",
+      "/images/baths/banya-iz-brusa-6-na-8-ladya/18.jpg"
+    ]
+  },
+  "karkasnaya-banya-pod-klyuch-ladya": {
+    "priceTables": [
+      {
+        "title": "Цена бани «Лада»",
+        "head": [
+          "Толщина бруса",
+          "Под усадку",
+          "Под ключ"
+        ],
+        "rows": [
+          [
+            "140х140",
+            "1 160 000",
+            "1 768 000"
+          ],
+          [
+            "190х140",
+            "1 320 000",
+            "1 932 000"
+          ]
+        ]
+      },
+      {
+        "title": "Комплектация бани «Лада»",
+        "head": [
+          "Комплектация",
+          "отделка Имитация бруса"
+        ],
+        "rows": [
+          [
+            "Теплый контур",
+            "1 455 000"
+          ],
+          [
+            "Премиум",
+            "1 698 000"
+          ]
+        ]
+      }
+    ],
+    "equipmentTitle": "",
+    "equipment": [],
+    "foundation": [],
+    "plans": [
+      "/images/baths/karkasnaya-banya-pod-klyuch-ladya/07.jpg",
+      "/images/baths/karkasnaya-banya-pod-klyuch-ladya/08.jpg"
+    ]
   }
 };

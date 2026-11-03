@@ -12,7 +12,7 @@ import { MobileMenu } from "./MobileMenu";
 
 const nav = [
   { href: "/about", label: "О компании" },
-  { href: "/projects/houses", label: "Дома" },
+  { href: "/projects/houses", label: "Проекты домов" },
   { href: "/projects/baths", label: "Бани" },
   { href: "/works", label: "Наши работы" },
   { href: "/reviews", label: "Отзывы" },

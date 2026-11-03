@@ -229,7 +229,7 @@ export default function ProjectPage({ params }: PageProps) {
                       />
                     </a>
                     <figcaption className="border-t border-line bg-sand px-4 py-2.5 text-center text-sm font-semibold text-forest">
-                      {detail.plans.length > 1 ? `План ${i + 1}-го этажа` : "Планировка дома"}
+                      {detail.plans.length > 1 ? `План ${i + 1}-го этажа` : project.type === "bath" ? "Планировка бани" : "Планировка дома"}
                     </figcaption>
                   </figure>
                 ))}
