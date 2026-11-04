@@ -3,13 +3,13 @@
 import * as React from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LeadDialog } from "@/components/forms/LeadDialog";
 
 /**
- * Hero-баннер на главной: видео-ротация объектов.
+ * Hero-баннер на главной: видео-ротация объектов на весь экран.
  * Следующее видео стартует, когда предыдущее закончилось (onEnded), по кругу.
  * Порядок: Дмитров → Подольск → Кондор-1.
  */
@@ -54,6 +54,8 @@ const SLIDES: VideoSlide[] = [
   },
 ];
 
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
 export function HeroSlider() {
   const [index, setIndex] = React.useState(0);
   const touchStartX = React.useRef<number | null>(null);
@@ -78,22 +80,22 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative h-[560px] w-full overflow-hidden md:h-[640px]"
+      className="relative flex h-[94svh] min-h-[600px] w-full flex-col justify-end overflow-hidden bg-forest-ink"
       aria-roledescription="слайдер"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
+      {/* Видео — кинематографичный лёгкий зум (Кен Бёрнс) */}
       <AnimatePresence mode="sync">
         <motion.div
           key={slide.video}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          {/* Видео на весь экран; постер — первое фото проекта для мгновенной отрисовки */}
-          <video
+          <motion.video
             key={slide.video}
             src={slide.video}
             poster={slide.poster}
@@ -102,41 +104,50 @@ export function HeroSlider() {
             playsInline
             preload="auto"
             onEnded={() => go(1)}
+            initial={{ scale: 1.06 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 8, ease: "easeOut" }}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          {/* Затемнение для читаемости текста */}
-          <div className="absolute inset-0 bg-gradient-to-r from-forest/80 via-forest/50 to-transparent" />
+          {/* Многослойное затемнение для глубины и читаемости */}
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-ink via-forest-ink/35 to-forest-ink/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-ink/70 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Контент слайда (отступы, чтобы текст не залезал под стрелки и точки) */}
-      <div className="container relative z-10 flex h-full flex-col justify-center pb-16 md:pl-24">
+      {/* Контент слайда */}
+      <div className="container relative z-10 pb-40 md:pb-44">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.video}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl space-y-5 text-white"
+            exit={{ opacity: 0, y: -24 }}
+            transition={{ duration: 0.65, ease: easeOut }}
+            className="max-w-3xl text-white"
           >
-            <p className="inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-forest">
-              Дом под ключ
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Дом под ключ · {slide.size}
             </p>
-            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-              Каркасный дом «{slide.title}»
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+              Каркасный дом
+              <br />
+              <span className="text-primary">«{slide.title}»</span>
             </h1>
-            <p className="text-lg text-white/90 md:text-xl">
-              {slide.area} м² · {slide.size} · Сухой пиломатериал камерной сушки · Rockwool · без предоплаты
+            <p className="mt-4 max-w-xl text-base text-white/80 md:text-lg">
+              {slide.area} м² · сухой пиломатериал камерной сушки · утеплитель Rockwool · без предоплаты
             </p>
-            <p className="text-2xl font-bold text-primary md:text-3xl">от {formatPrice(slide.price)}</p>
-            <div className="flex flex-wrap gap-3 pt-2">
+            <p className="mt-3 font-heading text-3xl font-bold text-primary md:text-4xl">
+              от {formatPrice(slide.price)}
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <LeadDialog
                 source="hero"
                 title="Оставить заявку"
                 description={`Интересует дом «${slide.title}»? Оставьте телефон — перезвоним за 15 минут.`}
                 trigger={
-                  <Button variant="accent" size="lg">
+                  <Button variant="default" size="lg" className="font-bold">
                     Оставить заявку
                   </Button>
                 }
@@ -148,17 +159,24 @@ export function HeroSlider() {
                 withComment
                 commentLabel="Комментарий (необязательно)"
                 trigger={
-                  <Button variant="default" size="lg">
+                  <Button variant="accent" size="lg" className="font-bold">
                     Получить смету
                   </Button>
                 }
               />
-              <Button asChild variant="outline" size="lg">
-                <Link href={slide.href}>Смотреть проект</Link>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="gap-2 font-bold"
+              >
+                <Link href={slide.href}>
+                  Смотреть проект
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </Button>
             </div>
-            {/* Плашка доверия */}
-            <p className="flex items-center gap-2 pt-1 text-sm font-medium text-white/85">
+            <p className="mt-6 flex items-center gap-2 text-sm font-medium text-white/75">
               <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
               с 2011 года · 470+ домов · гарантия 5 лет · без предоплаты
             </p>
@@ -171,7 +189,7 @@ export function HeroSlider() {
         type="button"
         onClick={() => go(-1)}
         aria-label="Предыдущий слайд"
-        className="absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/15 p-3 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-forest md:block"
+        className="absolute right-20 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-3 text-white backdrop-blur-md transition-all hover:border-primary hover:bg-primary hover:text-forest lg:block"
       >
         <ChevronLeft className="h-6 w-6" />
       </button>
@@ -179,24 +197,38 @@ export function HeroSlider() {
         type="button"
         onClick={() => go(1)}
         aria-label="Следующий слайд"
-        className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/15 p-3 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-forest md:block"
+        className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-3 text-white backdrop-blur-md transition-all hover:border-primary hover:bg-primary hover:text-forest lg:block"
       >
         <ChevronRight className="h-6 w-6" />
       </button>
 
-      {/* Точки-индикаторы */}
-      <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-        {SLIDES.map((s, i) => (
-          <button
-            key={s.video}
-            type="button"
-            onClick={() => setIndex(i)}
-            aria-label={`Слайд ${i + 1}: ${s.title}`}
-            className={`h-2.5 rounded-full transition-all ${
-              i === index ? "w-8 bg-primary" : "w-2.5 bg-white/50 hover:bg-white"
-            }`}
-          />
-        ))}
+      {/* Нижняя панель: стеклянная карточка объекта + точки + скролл-кью */}
+      <div className="container absolute inset-x-0 bottom-0 z-10 pb-7">
+        <div className="flex items-end justify-between gap-6">
+          {/* Точки-индикаторы */}
+          <div className="flex gap-2.5">
+            {SLIDES.map((s, i) => (
+              <button
+                key={s.video}
+                type="button"
+                onClick={() => setIndex(i)}
+                aria-label={`Слайд ${i + 1}: ${s.title}`}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  i === index ? "w-14 bg-primary" : "w-6 bg-white/35 hover:bg-white/70"
+                }`}
+              />
+            ))}
+          </div>
+          {/* Скролл-подсказка (десктоп) */}
+          <div className="hidden flex-col items-center gap-2 md:flex" aria-hidden>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/50">
+              Листайте
+            </span>
+            <span className="flex h-9 w-6 items-start justify-center rounded-full border border-white/30 p-1.5">
+              <span className="h-2 w-1 rounded-full bg-primary animate-scroll-cue" />
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

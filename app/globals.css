@@ -30,12 +30,41 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    text-wrap: balance;
+  }
+
+  /* Выделение текста — фирменное */
+  ::selection {
+    background: #8cc63f;
+    color: #0c1a0b;
+  }
+
+  /* Скроллбар */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1efe9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e3a1e;
+    border-radius: 8px;
+    border: 2px solid #f1efe9;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8cc63f;
   }
 }
 
@@ -44,4 +73,76 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
+
+  /* Зернистая текстура поверх тёмных секций */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Контурный гигантский текст (декор тёмных секций) */
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(140, 198, 63, 0.25);
+    color: transparent;
+  }
+
+  /* Стеклянная панель */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  /* Блик, пробегающий по кнопке при наведении */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    height: 100%;
+    width: 50%;
+    transform: skewX(-24deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transition: none;
+    pointer-events: none;
+  }
+  .btn-shine:hover::after {
+    animation: shine-sweep 0.7s ease;
+  }
+
+  /* Мягкое появление при загрузке */
+  .stagger-in > * {
+    opacity: 0;
+    animation: fade-up 0.7s ease-out forwards;
+  }
+  .stagger-in > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-in > *:nth-child(2) { animation-delay: 0.15s; }
+  .stagger-in > *:nth-child(3) { animation-delay: 0.25s; }
+  .stagger-in > *:nth-child(4) { animation-delay: 0.35s; }
+  .stagger-in > *:nth-child(5) { animation-delay: 0.45s; }
+  .stagger-in > *:nth-child(6) { animation-delay: 0.55s; }
+}
+
+@keyframes shine-sweep {
+  0% { left: -80%; }
+  100% { left: 130%; }
+}
+
+/* fade-up используется кастомным классом .stagger-in — ключи должны быть в глобальном CSS,
+   т.к. Tailwind включает keyframes только при использовании utility-класса animate-* */
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

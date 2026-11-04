@@ -11,6 +11,7 @@ export function ReviewsPreview() {
       <div className="container">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
+            index="06"
             title="Отзывы клиентов"
             subtitle="Нас рекомендуют соседям, друзьям и родственникам"
             className="mb-0"

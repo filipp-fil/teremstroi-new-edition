@@ -22,12 +22,24 @@ const nav = [
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
   // Стабильная ссылка на колбэк: иначе MobileMenu закрывается сразу после открытия
   const closeMenu = React.useCallback(() => setOpen(false), []);
 
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-line bg-white/90 backdrop-blur-md">
-      <div className="container flex items-center justify-between gap-4 py-3.5 md:py-5">
+    <header
+      className={`sticky top-0 z-40 w-full border-b bg-white/90 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? "border-line shadow-[0_8px_30px_-12px_rgba(12,26,11,0.18)]" : "border-transparent"
+      }`}
+    >
+      <div className="container flex items-center justify-between gap-4 py-3.5 md:py-4">
         {/* Логотип компании (файл public/logo.png) */}
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Красивый Дом — на главную">
           <Image src="/logo.png" alt="Красивый Дом" width={164} height={80} priority className="h-12 w-auto md:h-14" />

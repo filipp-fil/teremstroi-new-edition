@@ -16,7 +16,7 @@ const config: Config = {
     container: {
       center: true,
       padding: "1rem",
-      screens: { "2xl": "1280px" },
+      screens: { "2xl": "1360px" },
     },
     extend: {
       colors: {
@@ -33,6 +33,8 @@ const config: Config = {
         forest: {
           DEFAULT: "#1E3A1E", // тёмно-зелёный для текста
           light: "#3B5A3B",
+          deep: "#12240F", // почти чёрный зелёный — тёмные секции
+          ink: "#0C1A0B", // максимально тёмный фон
         },
         // --- Нейтральные ---
         sand: "#F7F6F2", // фон секций
@@ -80,15 +82,38 @@ const config: Config = {
       boxShadow: {
         soft: "0 4px 24px -8px rgba(30, 58, 30, 0.12)",
         lift: "0 12px 40px -12px rgba(30, 58, 30, 0.25)",
+        glow: "0 0 0 1px rgba(140,198,63,0.35), 0 8px 40px -8px rgba(140,198,63,0.45)",
+        deep: "0 24px 80px -24px rgba(12, 26, 11, 0.55)",
       },
       keyframes: {
         "pulse-soft": {
           "0%, 100%": { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(140,198,63,0.5)" },
           "50%": { transform: "scale(1.05)", boxShadow: "0 0 0 12px rgba(140,198,63,0)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "scroll-cue": {
+          "0%": { transform: "translateY(0)", opacity: "1" },
+          "70%": { transform: "translateY(12px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
       animation: {
         "pulse-soft": "pulse-soft 2.5s ease-in-out infinite",
+        marquee: "marquee 28s linear infinite",
+        "fade-up": "fade-up 0.7s ease-out both",
+        "scroll-cue": "scroll-cue 1.8s ease-in-out infinite",
+        shimmer: "shimmer 2.5s linear infinite",
       },
     },
   },

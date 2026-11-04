@@ -11,17 +11,19 @@ import { LeadDialog } from "@/components/forms/LeadDialog";
 /** Карточка проекта в каталоге и на главной */
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift">
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lift">
       <Link href={`/projects/${project.slug}`} className="block">
         <div className="relative aspect-[4/3] overflow-hidden bg-primary-light">
           <Image
             src={project.images[0]}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             sizes="(max-width: 1024px) 50vw, 33vw"
           />
-          <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-bold text-forest backdrop-blur-sm sm:left-3 sm:top-3 sm:px-3 sm:py-1 sm:text-xs">
+          {/* Лёгкое затемнение снизу при наведении */}
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-forest backdrop-blur-sm sm:left-4 sm:top-4">
             {project.type === "bath" ? "Баня" : "Дом"} · {project.size}
           </span>
         </div>

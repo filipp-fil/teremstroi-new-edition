@@ -15,6 +15,7 @@ export function StagesTimeline() {
       <div className="container">
         <SectionHeading
           center
+          index="03"
           title="Как мы строим"
           subtitle="От заявки до акту приёмки — прозрачный процесс, каждый этап по расписанию"
         />

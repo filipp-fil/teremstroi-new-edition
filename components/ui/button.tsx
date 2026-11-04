@@ -8,13 +8,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Основная кнопка — салатовая
-        default: "bg-primary text-forest shadow-soft hover:bg-primary-dark",
+        // Основная кнопка — салатовая, с бликом при наведении
+        default: "btn-shine bg-primary text-forest shadow-soft hover:bg-primary-dark hover:shadow-glow",
         // Акцентная — алая (важные CTA)
-        accent: "bg-accent text-white shadow-soft hover:bg-accent-dark",
+        accent: "btn-shine bg-accent text-white shadow-soft hover:bg-accent-dark",
         // Контурная — на фото/тёмных подложках
-        outline: "border-2 border-white text-white hover:bg-white/10",
-        outlineDark: "border-2 border-forest text-forest hover:bg-forest hover:text-white",
+        outline: "btn-shine border-2 border-white text-white hover:bg-white/10",
+        outlineDark: "btn-shine border-2 border-forest text-forest hover:bg-forest hover:text-white",
         secondary: "bg-primary-light text-forest hover:bg-primary/30",
         ghost: "hover:bg-primary-light text-forest",
         link: "text-primary underline-offset-4 hover:underline",
